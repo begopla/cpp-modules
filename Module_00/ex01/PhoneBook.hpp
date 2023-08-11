@@ -8,8 +8,8 @@ class PhoneBook
 	public:
 			PhoneBook();
 			~PhoneBook();
-			void addContact(void);
-			void searchContact();
+			void setContact(void);
+			void getContact();
 	private:
 		static const int MAX_CONTACTS = 8;
 		int newContactIndex;

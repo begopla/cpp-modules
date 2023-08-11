@@ -19,9 +19,9 @@ int main() {
 	showMenu();
 	while (std::cout << "$> ", std::getline(std::cin, line)){
 		if (line == "SEARCH")
-			phoneList.searchContact();
+			phoneList.getContact();
 		else if (line == "ADD")
-			phoneList.addContact();
+			phoneList.setContact();
 		else if (line == "EXIT")
 		{
 			std::cout << "exit" << std::endl;

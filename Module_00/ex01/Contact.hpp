@@ -11,8 +11,8 @@ class Contact
 		~Contact();
 
 		int setInfo(int index);
-		void showTable();
-		void showFullTable();
+		void getTable();
+		void getFullTable();
 	private:
 		static const int NUM_FIELDS = 5;
 		enum fields {

@@ -11,7 +11,7 @@ PhoneBook::PhoneBook()
 
 PhoneBook::~PhoneBook() {}
 
-void PhoneBook::addContact(){
+void PhoneBook::setContact(){
 	if (this->newContactIndex >= this->MAX_CONTACTS)
 		this->newContactIndex = 0;
 	std::cout << std::endl;
@@ -60,7 +60,7 @@ bool isNumeric(const std::string& str) {
 }
 
 
-void PhoneBook::searchContact(){
+void PhoneBook::getContact(){
 	if (this->contactNum == 0){
 		std::cout << "\nError: no contacts\n" << std::endl;
 		return;
@@ -71,7 +71,7 @@ void PhoneBook::searchContact(){
 	<< "|     Index|First Name| Last Name|  Nickname|\n"
 	<< "|-------------------------------------------|\n";
 	for (int i = 0; i < this->contactNum; i++)
-		this->contacts[i].showTable();
+		this->contacts[i].getTable();
 	std::cout << "|-------------------------------------------|" << std::endl;
 
 	bool range = true;
@@ -104,6 +104,6 @@ void PhoneBook::searchContact(){
 	} while (range);
 
 	std::cout << std::endl;
-	this->contacts[id - 1].showFullTable();
+	this->contacts[id - 1].getFullTable();
 	std::cout << std::endl;
 }

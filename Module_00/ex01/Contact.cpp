@@ -54,7 +54,7 @@ int Contact::setInfo(int index)
 	return (0);
 }
 
-void Contact::showTable(){
+void Contact::getTable(){
 	std::cout << "|" << std::right << std::setw(10) << this->index;
 
 	for (int i = 0; i < 3; i++) {
@@ -68,7 +68,7 @@ void Contact::showTable(){
 	std::cout << "|" << std::endl;
 }
 
-void Contact::showFullTable() {
+void Contact::getFullTable() {
 	int id;
 
 	std::cout << "===== Information of contact #" << this->index << " =====\n\n";
