@@ -12,7 +12,7 @@ class Contact
 
 		int setInfo(int index);
 		void showTable();
-		void fullTable();
+		void showFullTable();
 	private:
 		static const int NUM_FIELDS = 5;
 		enum fields {

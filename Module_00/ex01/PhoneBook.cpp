@@ -74,12 +74,12 @@ void PhoneBook::searchContact(){
 		this->contacts[i].showTable();
 	std::cout << "|-------------------------------------------|" << std::endl;
 
-	bool run = true;
+	bool range = true;
 	int id;
 	std::cout << "\nEnter index of a contact to display all information, or type \"EXIT\" to return\n";
 	do {
 		std::string str;
-		std::cout << "Index: " << std::flush;
+		std::cout << "Index: ";
 		std::getline(std::cin, str);
 
 		if(std:: cin.eof())
@@ -96,14 +96,14 @@ void PhoneBook::searchContact(){
 			std::istringstream(str) >> id;
 			if (id <= 0 || id > this->contactNum) {
 				std::cout << "\nInvalid index: out of range" << std::endl;
-				run = true;
+				range = true;
 			} else {
-				run = false;
+				range = false;
 			}
 		}
-	} while (run);
+	} while (range);
 
 	std::cout << std::endl;
-	this->contacts[id - 1].fullTable();
+	this->contacts[id - 1].showFullTable();
 	std::cout << std::endl;
 }

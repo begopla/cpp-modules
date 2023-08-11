@@ -24,7 +24,7 @@ int Contact::setInfo(int index)
 {
 	this->index = index;
 
-	const std::string prompts[] = {
+	const std::string infoArray[] = {
 		"Name: ",
 		"Last name: ",
 		"Nickname: ",
@@ -34,7 +34,7 @@ int Contact::setInfo(int index)
 	std::cout << "Add contact: \n";
 	for(int i = 0; i < 5; i++)
 	{
-		std::cout << prompts[i];
+		std::cout << infoArray[i];
 		std::getline(std::cin, this->fieldsInfo[i]);
 
 		if (std::cin.eof()){
@@ -68,7 +68,7 @@ void Contact::showTable(){
 	std::cout << "|" << std::endl;
 }
 
-void Contact::fullTable() {
+void Contact::showFullTable() {
 	int id;
 
 	std::cout << "===== Information of contact #" << this->index << " =====\n\n";
