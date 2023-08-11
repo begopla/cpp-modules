@@ -12,10 +12,10 @@ Contact::~Contact() {}
 
 //private helper function
 
-bool stringIsAlnum(const std::string &str)
+bool stringIsAlnumSpace(const std::string &str)
 {
 	int i = 0;
-	while ( i < static_cast<int>(str.length()) && isalnum(str[i])) i++;
+	while ( i < static_cast<int>(str.length()) && (isalnum(str[i]) || isspace(str[i]))) i++;
 	return i ==  static_cast<int>(str.length());
 
 }
@@ -31,22 +31,22 @@ int Contact::setInfo(int index)
 		"Phone number: ",
 		"Darkest secret: "
 	};
-
+	std::cout << "Add contact: \n";
 	for(int i = 0; i < 5; i++)
 	{
-		std::cout << "Add contact: " << prompts[i];
+		std::cout << prompts[i];
 		std::getline(std::cin, this->fieldsInfo[i]);
 
 		if (std::cin.eof()){
 			std::cin.clear();
 			return (1);
 		}
-		if (this->fieldsInfo[i].empty()){
-			std::cout << "\nError: info required\n";
+		if (this->fieldsInfo[i].empty() || isspace(this->fieldsInfo[i][0])){
+			std::cout << "\nError: alphanumeric info required\n";
 
 			return (1);
 		}
-		if(!stringIsAlnum(this->fieldsInfo[i])){
+		if(!stringIsAlnumSpace(this->fieldsInfo[i])){
 			std::cout << "\nError: input must only contain alphanumeric characters\n";
 			return (1);
 		}
