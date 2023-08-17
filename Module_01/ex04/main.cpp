@@ -10,11 +10,24 @@ static void	replace(std::string fileName, std::string s1, std::string s2)
 	std::string		line;
 
 	file1.open(fileName.c_str(), std::ios::in);
+	if (!file1)
+	{
+ 		std::cout << "Error: Input file does not exist" << std::endl;
+        return;
+	}
+	if (!file1.is_open() || !file1.good())
+	{
+		std::cout << "Error: Input file is not writable" << std::endl;
+        file1.close();
+        return;
+	}
 	file2.open(std::string(fileName + ".replace").c_str(), std::ios::out);
-	if(!file1)
-		std::cout << "Error: Input file" << std::endl;
-	else if(!file2)
+	if(!file2)
+	{
 		std::cout << "Error: output file" << std::endl;
+		file1.close();
+		return;
+	}
 	else
 	{
 		while (getline(file1, line))
