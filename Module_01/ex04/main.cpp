@@ -22,7 +22,7 @@ static void	replace(std::string fileName, std::string s1, std::string s2)
 		while (getline(file1, line))
 		{
 			int end = 0;
-			while ((value = line.find(s1, end) != std::string::npos))
+			while ((value = line.find(s1, end)) != std::string::npos)
 			{
 				tmp = line.substr(value + s1.size());
 				line.erase(value);
@@ -43,11 +43,11 @@ int main(int ac, char **av)
 	if (ac == 4)
 	{
 		if (!av[2][0] || !av[3][0])
-			std::cout << "Strings can't be empty" << std::endl;
+			std::cout << "Error: String s1 and s2 can not be empty" << std::endl;
 		else
 			replace(av[1], av[2], av[3]);
 	}
 	else
-		std::cout << "Wrong amount of arguments" << std::endl;
+		std::cout << "Error: Wrong amount of arguments inserted" << std::endl;
 	return 0;
 }
