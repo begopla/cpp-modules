@@ -13,4 +13,5 @@ int main( void )
 	test.complain("xxxxxxxxx");
 	test.complain("dEbuG");
 	test.complain("Info");
+	return (0);
 }
